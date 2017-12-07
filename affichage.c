@@ -116,7 +116,7 @@ void afficherEssais(char tab[10][7])
 
     printf("\na : couleurs bien placees\nb : couleurs mal placees\n");
 
-    printf("\t\t\t\t  a  |  b");
+    printf("\t\t\t\t   a | b");
     printf("\n\t\t__________________________");
 
     for(i=0; i<10; i++)

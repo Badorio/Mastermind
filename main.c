@@ -8,8 +8,16 @@
 /* Auteur : BELLUZ Benjamin                          */
 /* Groupe : 2105                                     */
 /* Application : Mastermind dossier 1                */
-/* Date dernière mise à jour : 04/12/2017            */
+/* Date dernière mise à jour : 07/12/2017            */
 /*****************************************************/
+
+/*
+Dernières modifs :
+-correction du bug qui permettait d'avoir accès au dernier choix du menu en encodant un caractère au lieu d'un entier
+    -> j'ai eu le soucis sur le puissance 4 hier, du coup j'ai vérifié ici
+-légère correction de l'affichage de la grille (retirer un espace en trop)
+-modification d'une alternative dans caract.c (if -> else pour la répétition de couleurs)
+*/
 
 void jeu(char* mot, char essais[10][7], char couleurs[9]);
 
@@ -38,6 +46,7 @@ int main()
     do{
         afficherMenu();
 
+        choixMenuInit=0; //éviter que l'on puisse avoir accès au dernier choix du menu si l'on tape une valeur non entière
         fflush(stdin);
         scanf("%d", &choixMenuInit);
 
@@ -54,7 +63,6 @@ int main()
             //Création de la suite de couleurs aléatoire
             for(i=0; i<4; i++)
             {
-
                 do{
                     i2=rand()%8; //Prendre une couleur dans les 8
                 }
